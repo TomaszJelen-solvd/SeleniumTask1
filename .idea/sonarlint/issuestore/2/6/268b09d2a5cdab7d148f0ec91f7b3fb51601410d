@@ -1,0 +1,5 @@
+
+m	java:S106"+Replace this use of System.out by a logger.(Õõ∫Å8Æ–ú≥ª2J$2b4ca63c-3668-4ae1-bdb3-cf49cef16081
+m	java:S1062"+Replace this use of System.out by a logger.(ƒ∆ä∑8±–ú≥ª2J$288e7baf-92ca-4945-ab3d-d37261558051
+ç
+java:S2674O"JCheck the return value of the "read" call to see how many bytes were read.(áÕ£Å8µ–ú≥ª2J$77ba3046-b49c-4638-a693-4cc844fb9552
