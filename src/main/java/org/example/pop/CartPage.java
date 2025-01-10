@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class CartPage {
+    WebDriver driver;
     @FindBy(xpath = "//div[text()='Sauce Labs Backpack']")
     WebElement sauceLabsBackpack;
 
@@ -20,17 +21,18 @@ public class CartPage {
     List<WebElement> productPrices;
 
     public CartPage(WebDriver driver) {
+        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    public boolean checkProduct(int index) {
-        switch (index) {
-            case 0:
-                return sauceLabsBackpack.isDisplayed();
-            default:
-                return false;
-        }
-    }
+//    public boolean checkProduct(int index) {
+//        switch (index) {
+//            case 0:
+//                return sauceLabsBackpack.isDisplayed();
+//            default:
+//                return false;
+//        }
+//    }
 
     public boolean checkProductTitle(String title) {
         for (WebElement productTitle : productTitles) {
@@ -69,6 +71,17 @@ public class CartPage {
         }
         return true;
     }
+
+    public List<String> getProductTitles() {
+        return productTitles.stream().map(WebElement::getText).toList();
+    }
+    public List<BigDecimal> altGetProductPrices() {
+        return productPrices.stream().map(WebElement::getText)
+                .map(text -> new BigDecimal(Pattern.compile("\\d+(\\.\\d+|)")
+                        .matcher(text).results().findFirst().get().group()))
+                .toList();
+    }
+
 
 
 }

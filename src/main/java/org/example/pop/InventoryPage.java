@@ -12,6 +12,8 @@ import java.util.stream.Collectors;
 
 public class InventoryPage {
 
+    WebDriver driver;
+
     @FindBy(xpath = "//div[text()='Swag Labs']")
     WebElement title;
     @FindBy(css = "a[class='shopping_cart_link']")
@@ -29,6 +31,7 @@ public class InventoryPage {
 
 
     public InventoryPage(WebDriver driver) {
+        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
@@ -80,7 +83,7 @@ public class InventoryPage {
         return productAddButtons.get(index).getText();
     }
 
-    public CartPage clickCart(WebDriver driver) {
+    public CartPage clickCart() {
         cart.click();
         return new CartPage(driver);
     }

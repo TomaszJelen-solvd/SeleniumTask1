@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
+
+    WebDriver driver;
     @FindBy(css = "input[id='user-name']")
     WebElement login;
 
@@ -22,6 +24,8 @@ public class LoginPage {
     WebElement errorText;
 
     public LoginPage(WebDriver driver) {
+        driver.get("https://www.saucedemo.com/");
+        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
@@ -33,7 +37,7 @@ public class LoginPage {
         password.sendKeys(fill);
     }
 
-    public InventoryPage clickSubmit(WebDriver driver) {
+    public InventoryPage clickSubmit() {
         submit.click();
         return new InventoryPage(driver);
     }

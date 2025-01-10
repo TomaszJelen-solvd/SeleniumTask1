@@ -9,6 +9,9 @@
         <Logger name="org.example" level="debug" additivity="false">
             <AppenderRef ref="LogToConsole"/>
         </Logger>
+<!--        <Logger name="org.openqa.selenium" level="all" additivity="false">-->
+<!--            <AppenderRef ref="LogToConsole"/>-->
+<!--        </Logger>-->
         <Root level="debug">
             <AppenderRef ref="LogToConsole"/>
         </Root>
